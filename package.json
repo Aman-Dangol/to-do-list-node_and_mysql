@@ -1,0 +1,14 @@
+{
+  "name": "to-do-list-database",
+  "version": "1.0.0",
+  "description": "to do list using mysql",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aman",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
