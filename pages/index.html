@@ -9,6 +9,13 @@
   <body>
     <main>
       <h1>To do list</h1>
+      <section class="form-input">
+        <form action="/add">
+          <label for="task">task name</label>
+          <input type="text" name="task" required />
+          <button type="submit">add to list</button>
+        </form>
+      </section>
       <section id="lists">
         <table>
           <thead>

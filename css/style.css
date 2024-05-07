@@ -25,3 +25,14 @@ table * {
 table {
   border-collapse: collapse;
 }
+
+/* forms section */
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+form > * {
+  margin: 2px;
+}
