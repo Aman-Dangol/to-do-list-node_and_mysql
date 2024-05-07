@@ -1,7 +1,7 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-const mysql = require("./connect.js");
+const mysql = require("./scripts/connect.js");
 const conn = mysql.conn;
 http
   .createServer((req, res) => {
@@ -19,7 +19,6 @@ http
     }
     if (req.url == "/getList") {
       res.setHeader("content-type", "text/html");
-      conn.connect();
       conn.query("select * from lists", (err, data, fields) => {
         if (err) {
           res.end("<h1>get list</h1>");
@@ -33,6 +32,9 @@ http
       switch (ext) {
         case ".css":
           responder(res, "css", parsedPath.base, "text/css");
+          break;
+        case ".js":
+          responder(res, "scripts", parsedPath.base, "text/javascript");
           break;
       }
     }
