@@ -12,5 +12,4 @@ async function getData() {
     </tr>`;
   });
 }
-
 getData();
