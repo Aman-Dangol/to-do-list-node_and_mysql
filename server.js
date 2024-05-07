@@ -6,12 +6,10 @@ const mysql = require("./scripts/connect.js");
 const conn = mysql.conn;
 http
   .createServer((req, res) => {
-    console.log(req.url);
     let parsedPath = path.parse(req.url);
     let parsedUrl = url.parse(req.url);
-    console.log(parsedUrl);
-    req.url = parsedUrl.pathname;
-    if (req.url == "/") {
+    let requestUrl = parsedUrl.pathname;
+    if (requestUrl == "/") {
       res.setHeader("content-type", "text/html");
       fs.readFile("./pages/index.html", (err, data) => {
         if (err) {
@@ -22,22 +20,22 @@ http
         res.end(data);
       });
     }
-    if (req.url == "/add") {
+    if (requestUrl == "/add") {
       let formdata = new URLSearchParams(parsedUrl.query);
       conn.query(`insert into lists(task) values("${formdata.get("task")}")`);
-      responder(res, "pages", "index.html", "text/html");
-    } else if (req.url == "/getList") {
+      res.writeHead(301, { location: "/" });
+      res.end("hello");
+    } else if (requestUrl == "/getList") {
       res.setHeader("content-type", "text/html");
       conn.query("select * from lists", (err, data, fields) => {
         if (err) {
-          res.end("<h1>get list</h1>");
+          res.end("<h1>error aayo/h1>");
           return;
         }
         res.end(JSON.stringify(data));
       });
     } else {
       let ext = parsedPath.ext;
-      console.log(parsedPath);
       switch (ext) {
         case ".css":
           responder(res, "css", parsedPath.base, "text/css");
