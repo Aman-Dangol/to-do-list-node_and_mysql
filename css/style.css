@@ -44,6 +44,8 @@ form > * {
   border: none;
   border-radius: 8px;
   text-align: center;
+  padding: 3px;
+
 }
 
 .update {
@@ -52,4 +54,9 @@ form > * {
 
 .delete {
   background-color: red;
+}
+
+
+.form-input{
+  margin-bottom: 4px;
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/update.css" />
+    <title>update task</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>To do list</h1>
+      </header>
+      <section>
+        <form action="/updateData" method="get">
+          <label for="task">task</label>
+          <input type="text" id="taskID" name="id" hidden />
+          <input type="text" name="task" id="input" />
+          <button type="submit">update</button>
+        </form>
+      </section>
+    </main>
+  </body>
+  <script src="../scripts/update.js"></script>
+</html>
