@@ -19,8 +19,13 @@ http
         }
         res.end(data);
       });
-    }
-    if (requestUrl == "/add") {
+    } else if (requestUrl == "/delete") {
+      let formdata = new URLSearchParams(parsedUrl.query);
+      let id = formdata.get("id");
+      conn.query(`delete from lists where lists.id = ${id}`);
+      res.writeHead(301, { location: "/" });
+      res.end();
+    } else if (requestUrl == "/add") {
       let formdata = new URLSearchParams(parsedUrl.query);
       conn.query(`insert into lists(task) values("${formdata.get("task")}")`);
       res.writeHead(301, { location: "/" });

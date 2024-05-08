@@ -36,3 +36,20 @@ form {
 form > * {
   margin: 2px;
 }
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.update {
+  background-color: green;
+}
+
+.delete {
+  background-color: red;
+}
